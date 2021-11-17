@@ -21,10 +21,10 @@ const fs = require("fs-extra");
 const Store = require("electron-store");
 const cp = require("child_process");
 import { v4 as uuidv4 } from "uuid";
-process.env.ENV = "test";
 
-process.env.ORIGIN_PATH = 'https://obs.starscape.live/'; 
-process.env.API_URL =  "https://api.starscape.live/"
+process.env.ORIGIN_PATH = 'your-domain-url'; 
+process.env.API_URL =  "your-api-url";
+
 
 
 

@@ -145,16 +145,6 @@ export class MainWindow {
       
     });
 
-
-    ipcMain.on('BRIGE_RENDER_TO_MAIN', (event: any, to: 'HOME' | 'GAME', param: any) => {
-      console.log('BRIGE_RENDER_TO_MAIN', to, param);
-      
-      if (to === 'HOME') {
-        this.window.webContents.send('BRIGE_MAIN_TO_RENDER', { origin: 'gamescape.live', data: JSON.stringify(param) });
-      } else {
-        this.subWindow && this.subWindow.webContents.send('BRIGE_MAIN_TO_RENDER', { origin: 'gamescape.live', data: JSON.stringify(param) });
-      }
-    })
   }
 
   

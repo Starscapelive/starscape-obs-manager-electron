@@ -8,8 +8,8 @@ import path from 'path';
 declare const __static: string;
 const { app, Menu, ipcMain, globalShortcut, session } = electron;
 
-process.env.ORIGIN_PATH = 'https://obs.starscape.live/'; 
-process.env.API_URL =  "https://api.starscape.live/"
+process.env.ORIGIN_PATH = 'your-domain-url'; 
+process.env.API_URL =  "your-api-url";
 
 export interface Context {
   tray?: TrayWindow,
