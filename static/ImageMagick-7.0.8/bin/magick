@@ -1,0 +1,4 @@
+DIR=$(cd `dirname $0` && pwd)
+export MAGICK_HOME=$(cd `dirname $DIR` && pwd)
+export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
+$DIR/_magick $@

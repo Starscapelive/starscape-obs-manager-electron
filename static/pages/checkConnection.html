@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Starscape</title>
+</head>
+<style>
+    .button {
+        position: absolute;
+        height: 41px;
+        width: 87px;
+        left: 469px;
+        top: 371px;
+        border-radius: 4px;
+        background-color:#683EFF;
+        border:none;
+        color:white;
+        font-size:14px;
+    }
+
+    .button:hover{
+        background-color: #3D1BB6;
+    }
+</style>
+
+<body background="./404.png">
+    <button class="button" id="retryBtn">retry</button>
+    
+    <script type="text/javascript">
+        document.getElementById("retryBtn").addEventListener("click", function(e) {
+                    window.RetryRender()
+                });
+    </script>
+</body>
+</html>

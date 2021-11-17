@@ -1,0 +1,15 @@
+.DS_Store
+dist/
+thumbs.db
+node_modules/
+npm-debug.log
+.nyc_output
+coverage
+.idea/
+**/api_data.js
+dist/
+tmp/
+out/
+binary/
+binnary/
+./package-lock.json

@@ -1,0 +1,132 @@
+{
+  "name": "starscape-obs-manager",
+  "version": "0.3.3",
+  "license": "GPL-2.0",
+  "author": {
+    "name": "starscape-obs"
+  },
+  "notes": "fix bugs",
+  "description": "Influencers First",
+  "scripts": {
+    "electron-toolkit": "electron ./node_modules/electron-toolkit",
+    "dev": "electron-webpack dev dev",
+    "compile": "electron-webpack",
+    "postdist": "node ./createUpdateJson.js",
+    "pre-dist": "echo 'start to dist'",
+    "dist": "npm run compile && npm run pre-dist && cross-env NPM_CONFIG_ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ electron-builder",
+    "dist:dir": "npm run dist --dir -c.compression=store -c.mac.identity=null",
+    "pack:win": "npm run compile && cross-env NPM_CONFIG_ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ electron-builder --win"
+  },
+  "dependencies": {
+    "@getstation/electron-google-oauth2": "^2.1.0",
+    "7zip-bin": "^5.1.1",
+    "axios": "^0.21.0",
+    "compare-versions": "^3.6.0",
+    "cors": "^2.8.5",
+    "electron-is-dev": "^1.2.0",
+    "electron-log": "^4.3.0",
+    "electron-positioner": "^4.1.0",
+    "electron-progressbar": "^2.0.1",
+    "electron-store": "^8.0.1",
+    "electron-traywindow-positioner": "^1.1.0",
+    "electron-unhandled": "^3.0.2",
+    "electron-updater": "^4.3.5",
+    "express": "^4.17.1",
+    "extract-zip": "^2.0.1",
+    "ffi-napi": "^4.0.3",
+    "fs-extra": "^10.0.0",
+    "gm": "^1.23.1",
+    "got": "^11.8.2",
+    "graphicsmagick-static": "^0.1.4",
+    "iconv-lite": "^0.6.3",
+    "nconf": "^0.11.0",
+    "node-7z": "^3.0.0",
+    "ref-napi": "^3.0.3",
+    "source-map-support": "^0.5.16",
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/gm": "^1.18.9",
+    "@types/node": "^14.14.10",
+    "cross-env": "^7.0.2",
+    "electron": "^15.2.0",
+    "electron-builder": "^22.9.1",
+    "electron-notarize": "^1.0.0",
+    "electron-webpack": "^2.7.4",
+    "electron-webpack-ts": "^3.2.0",
+    "typescript": "^3.4.5",
+    "webpack": "^4.41.2"
+  },
+  "build": {
+    "appId": "live.starscape.app",
+    "copyright": "Copyright © 2020 www.starscape.live",
+    "productName": "Starscape OBS Manager",
+    "asar": true,
+    "files": [
+      "dist/",
+      "node_modules/",
+      "static/",
+      "package.json"
+    ],
+    "extraFiles": [
+      {
+        "from": "build/resources/${os}",
+        "to": "Resources/bin",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "directories": {
+      "output": "binary"
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://public.star-scape.io/updates/client/release/"
+      }
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "publisherName": "Starscape OBS Manager",
+      "requestedExecutionLevel": "requireAdministrator",
+      "artifactName": "${name}-Setup.${buildVersion}.${ext}"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "identity": "Leo Leo",
+      "category": "public.app-category.business",
+      "artifactName": "${name}-Setup.${buildVersion}.${ext}",
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "dmg": {
+      "sign": true,
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}

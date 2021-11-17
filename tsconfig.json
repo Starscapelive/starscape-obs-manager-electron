@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "esnext",
+        "moduleResolution": "node",
+
+        "strict": false,
+        "noUnusedLocals": false,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": false,
+
+        "inlineSources": true,
+        "sourceMap": true,
+
+        "newLine": "lf",
+
+        "noEmitOnError": true,
+
+        "noEmit": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": false,
+        "noEmitHelpers": false,
+        "allowSyntheticDefaultImports": true,
+        "declaration": false,
+    },
+}
