@@ -24,8 +24,11 @@ import { v4 as uuidv4 } from "uuid";
 
 process.env.ORIGIN_PATH = 'your-domain-url'; 
 process.env.API_URL =  "your-api-url";
+process.env.PORTABLE = "false";
 
 
+
+const _loggerPath = process.env.PORTABLE == "true" ? path.join(app.getAppPath(), "../../log.txt") : path.join(app.getPath("userData"), "/log.txt")
 
 
 
@@ -53,12 +56,7 @@ const myFormat = printf(({ level, message, label, timestamp }) => {
   return `${timestamp} | ${level} | ${name} | V${version} | ${trace_id} | ${user_id} | ${logger_name} | ${message}`;
 });
 
-// this._logger.debug('[test app path is:]' ,app.getAppPath());
-// this._logger.debug('[test home path is:]' ,app.getPath('home'))
-// this._logger.debug('[test appData path is:]' ,app.getPath('appData'))
-// this._logger.debug('[test userData path is:]' ,app.getPath('userData'))
-// this._logger.debug('[test temp path is:]' ,app.getPath('temp'))
-// this._logger.debug('[test logs path is:]' ,app.getPath('logs'))
+
 
 class ObsConfig {
   _config: CONFIG;
@@ -146,7 +144,7 @@ class ObsConfig {
             myFormat
             // format.json()
           ),
-          filename: path.join(app.getPath("userData"), "/log.txt"),
+          filename: _loggerPath,
         }),
       ],
     });

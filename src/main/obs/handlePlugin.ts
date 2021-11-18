@@ -12,6 +12,9 @@ import { extractFull } from 'node-7z'
 const pathTo7zip = sevenBin.path7za
 const cp = require('child_process')
 
+
+const _temPath = process.env.PORTABLE == "true" ? path.join(app.getAppPath(), "../../Temp") : path.join(app.getPath("userData"), "/Temp")
+
 class HandlePlugin {
   pluginTem: string;
   converter: string;
@@ -20,7 +23,7 @@ class HandlePlugin {
   constructor() {
     this.pluginFileList = [];
     // 初始化插件下载目录
-    this.pluginTem = path.join(app.getPath("userData"), "/Temp");
+    this.pluginTem = path.join(_temPath);
     this.converter = path.join(this.pluginTem, "/converter");
     if (!fs.existsSync(this.pluginTem)) {
       fs.mkdirSync(this.pluginTem);
