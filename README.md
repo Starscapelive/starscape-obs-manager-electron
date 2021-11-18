@@ -1,5 +1,5 @@
 # Starscape OBS Manager Electron
-
+Starscape OBS Manager can easily manage all your OBS plugins in one place. Just one click to install/update all the essential plugins. 
 ## Introduction
 
 This is the Electron side of Starscape OBS Manager, it provides base functions to manage obs plugins. For example, detect、install、update、uninstall a 3rd plugin.
@@ -37,6 +37,10 @@ npm run dev
 ```
 npm run pack:win
 ```
+
+
+## FAQ
+[FAQ](https://obs.starscape.live/faq/)
 
 ## License
 GPL-2.0 License
